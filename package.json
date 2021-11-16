@@ -1,0 +1,20 @@
+{
+  "name": "employee_tracker",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "sql": "mySQL -u root -p"
+  },
+  "keywords": [],
+  "author": "paw6063",
+  "license": "MIT",
+  "description": "A back-end app that keeps track of employees.",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "inquirer": "^6.5.0",
+    "console.table": "0.10.0"
+  }
+}
