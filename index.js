@@ -59,19 +59,33 @@ function viewRole() {
   });
 }
 
-function addRole() {
-  inquirer.prompt(new_role).then((response) => {
-    const sql = `INSERT INTO roles (title, salary, department_id)
-    VALUE ("${response.role_name}", "${response.salary}", "${response.department_role}")`;
+function insertRole(name, salary, id){
+  const sql = `INSERT INTO roles (title, salary, department_id)
+    VALUE ("${name}", "${salary}", "${id}")`;
 
     db.query(sql, async (err, result) => {
       if(err){
         console.log(err.message);
         return;
       }
-      new_employee[2].choices.push(response.role_name);
-      await console.log(`Added ${response.role_name} to the database.`);
+      new_employee[2].choices.push(name);
+      await console.log(`Added ${name} to the database.`);
       menu();
+    });
+}
+
+function addRole() {
+  inquirer.prompt(new_role).then((response) => {
+    console.log(`${response.department_role}`);
+    const sql = `SELECT * FROM departments WHERE departments.department = ?`;
+
+    db.query(sql, response.department_role,async (err, result) => {
+      if(err){
+        console.log(err.message);
+        return;
+      }
+      console.log(result);
+      insertRole(response.role_name, response.salary, result[0].id);
     });
   });
 }
