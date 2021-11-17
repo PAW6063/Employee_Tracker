@@ -5,7 +5,7 @@ USE employee_tracker;
 
 CREATE TABLE departments (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  d_name VARCHAR(30) NOT NULL UNIQUE
+  department VARCHAR(30) NOT NULL UNIQUE
 );
 
 CREATE TABLE roles (
@@ -25,7 +25,6 @@ CREATE TABLE employees (
     manager_id INT,
     FOREIGN KEY (role_id)
     REFERENCES roles(id),
-
     FOREIGN KEY (manager_id)
     REFERENCES employees(id)
     ON DELETE SET NULL

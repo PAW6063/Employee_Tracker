@@ -1,4 +1,4 @@
-INSERT INTO departments (d_name)
+INSERT INTO departments (department)
 VALUES ("Engineering"),
        ("Finance"),
        ("Legal"),
