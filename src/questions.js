@@ -43,16 +43,37 @@ const new_employee = [
         type: "input"
     },
     {
-        name: "employee_name",
+        name: "last_name",
         message: "What is the employee's last name? ",
         type: "input"
     },
     {
         name: "employee_role",
-        message: "What is the employee's role?",
+        message: "What is the employee's role? ",
+        type: "list",
+        choices: []
+    },
+    {
+        name: "manager",
+        message: "Who is the manager? ",
+        type: "list",
+        choices: ["None"]
+    }
+]
+
+const update_role = [
+    {
+        name: "employee_name",
+        message: "Which employee's role do you want to update? ",
+        type: "list",
+        choices: []
+    },
+    {
+        name: "role",
+        message: "Which role do you want to assign the emplyee? ",
         type: "list",
         choices: []
     }
 ]
 
-module.exports = { main_menu, new_department, new_employee, new_role };
+module.exports = { main_menu, new_department, new_employee, new_role, update_role };
